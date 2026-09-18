@@ -36,7 +36,7 @@ export default function SolutionsHero() {
               <Button to="/#contact" variant="primary" size="lg">
                 Discuss Your Requirement
               </Button>
-              <Button to="/#projects" variant="secondary" size="lg">
+              <Button to="/projects" variant="secondary" size="lg">
                 View Projects
               </Button>
             </div>

@@ -1,18 +1,18 @@
 import CTASection from '../../components/CTASection'
 import Button from '../../components/Button'
 
-export default function SolutionsFinalCTA() {
+export default function ProjectsFinalCTA() {
   return (
     <div className="py-20 sm:py-24">
       <CTASection
-        heading="Have a Manual Process You Want to Automate?"
-        description="Tell us what you are doing manually. We can help design a practical automation workflow."
+        heading="Have a Problem Worth Automating?"
+        description="Let's discuss your workflow, technical challenge or automation requirement."
       >
         <Button to="/#contact" variant="primary" size="lg" className="w-full sm:w-auto">
           Discuss Your Requirement
         </Button>
-        <Button to="/projects" variant="secondary" size="lg" className="w-full sm:w-auto">
-          View Projects
+        <Button to="/solutions" variant="secondary" size="lg" className="w-full sm:w-auto">
+          Explore Solutions
         </Button>
       </CTASection>
     </div>

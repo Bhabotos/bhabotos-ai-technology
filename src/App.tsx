@@ -5,6 +5,7 @@ import ScrollToHash from './components/ScrollToHash'
 import Home from './pages/Home'
 import Training from './pages/Training'
 import Solutions from './pages/Solutions'
+import Projects from './pages/Projects'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/training" element={<Training />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer />
       </div>
