@@ -30,7 +30,7 @@ const TRACKS: Track[] = [
       'We design practical AI, automation and technology solutions that help businesses reduce repetitive work and improve operational workflows.',
     tags: ['AI Chatbots', 'Business Automation', 'AI Agents', 'n8n Automation', 'Network Automation', 'Dashboards & Reporting'],
     cta: 'Explore Solutions',
-    to: '/#solutions',
+    to: '/solutions',
   },
 ]
 

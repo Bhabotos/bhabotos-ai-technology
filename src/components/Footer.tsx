@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const FOOTER_LINKS = [
   { label: 'Training', to: '/training' },
-  { label: 'Solutions', to: '/#solutions' },
+  { label: 'Solutions', to: '/solutions' },
   { label: 'Projects', to: '/#projects' },
   { label: 'About', to: '/#about' },
   { label: 'Resources', to: '/#resources' },

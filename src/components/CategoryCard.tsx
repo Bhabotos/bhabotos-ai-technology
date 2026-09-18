@@ -1,8 +1,16 @@
 import { ArrowRight } from 'lucide-react'
-import type { TrainingCategory } from '../data/trainingCategories'
+import type { LucideIcon } from 'lucide-react'
+
+export interface CategoryCardData {
+  id: string
+  icon: LucideIcon
+  title: string
+  description: string
+  skills: string[]
+}
 
 interface CategoryCardProps {
-  category: TrainingCategory
+  category: CategoryCardData
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {

@@ -6,7 +6,7 @@ import Button from './Button'
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Training', to: '/training' },
-  { label: 'Solutions', to: '/#solutions' },
+  { label: 'Solutions', to: '/solutions' },
   { label: 'Projects', to: '/#projects' },
   { label: 'About', to: '/#about' },
   { label: 'Resources', to: '/#resources' },
@@ -61,7 +61,7 @@ export default function Navbar() {
           <Button to="/training" variant="secondary" size="md">
             Explore Training
           </Button>
-          <Button to="/#solutions" variant="primary" size="md">
+          <Button to="/solutions" variant="primary" size="md">
             Get a Solution
           </Button>
         </div>
@@ -96,7 +96,7 @@ export default function Navbar() {
             <Button to="/training" variant="secondary" size="lg" onClick={() => setOpen(false)}>
               Explore Training
             </Button>
-            <Button to="/#solutions" variant="primary" size="lg" onClick={() => setOpen(false)}>
+            <Button to="/solutions" variant="primary" size="lg" onClick={() => setOpen(false)}>
               Get a Solution
             </Button>
           </div>

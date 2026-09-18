@@ -42,7 +42,7 @@ export default function Hero() {
               <Button to="/training" variant="primary" size="lg">
                 Explore Training
               </Button>
-              <Button to="/#solutions" variant="secondary" size="lg">
+              <Button to="/solutions" variant="secondary" size="lg">
                 Get a Solution
               </Button>
             </div>
