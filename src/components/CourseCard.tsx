@@ -9,6 +9,8 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({ course, ctaTo, ctaLabel = 'View Course' }: CourseCardProps) {
+  const resolvedCtaTo = ctaTo ?? `/courses/${course.id}`
+
   return (
     <div className="glass-panel rounded-2xl p-6 sm:p-8 shadow-card w-full max-w-3xl mx-auto">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -65,15 +67,9 @@ export default function CourseCard({ course, ctaTo, ctaLabel = 'View Course' }: 
       </div>
 
       <div className="mt-8">
-        {ctaTo ? (
-          <Button to={ctaTo} variant="primary" size="lg" className="w-full sm:w-auto">
-            {ctaLabel}
-          </Button>
-        ) : (
-          <Button variant="primary" size="lg" className="w-full sm:w-auto">
-            {ctaLabel}
-          </Button>
-        )}
+        <Button to={resolvedCtaTo} variant="primary" size="lg" className="w-full sm:w-auto">
+          {ctaLabel}
+        </Button>
       </div>
     </div>
   )

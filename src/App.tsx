@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Training from './pages/Training'
 import Solutions from './pages/Solutions'
 import Projects from './pages/Projects'
+import CourseOutline from './pages/CourseOutline'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/training" element={<Training />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/courses/:courseId" element={<CourseOutline />} />
         </Routes>
         <Footer />
       </div>
