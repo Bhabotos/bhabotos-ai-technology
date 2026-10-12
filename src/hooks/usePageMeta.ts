@@ -26,7 +26,16 @@ const metaByProperty = (property: string, content: string) =>
     content,
   )
 
-export function usePageMeta(title: string, description: string, path?: string) {
+const remove = (selector: string) => document.head.querySelectorAll(selector).forEach((el) => el.remove())
+
+interface PageMetaOptions {
+  /** Unknown or non-content pages: add robots noindex and publish no canonical / og:url. */
+  noindex?: boolean
+}
+
+export function usePageMeta(title: string, description: string, path?: string, options: PageMetaOptions = {}) {
+  const noindex = options.noindex ?? false
+
   useEffect(() => {
     document.title = title
     metaByName('description', description)
@@ -35,8 +44,17 @@ export function usePageMeta(title: string, description: string, path?: string) {
     metaByName('twitter:title', title)
     metaByName('twitter:description', description)
 
+    if (noindex) {
+      metaByName('robots', 'noindex')
+      remove('link[rel="canonical"]')
+      remove('meta[property="og:url"]')
+      return
+    }
+
+    // Indexable page: make sure a noindex left by a previous (not-found) page is gone.
+    remove('meta[name="robots"]')
     const url = SITE_URL + (path ?? window.location.pathname)
     metaByProperty('og:url', url)
     upsert('link[rel="canonical"]', () => Object.assign(document.createElement('link'), { rel: 'canonical' }), 'href', url)
-  }, [title, description, path])
+  }, [title, description, path, noindex])
 }

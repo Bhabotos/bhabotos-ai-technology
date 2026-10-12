@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function NotFound() {
-  usePageMeta('Page not found | BHABOTOS AI & TECHNOLOGY', 'The page you requested does not exist.')
+  usePageMeta('Page not found | BHABOTOS AI & TECHNOLOGY', 'The page you requested does not exist.', undefined, { noindex: true })
   return (
     <main className="mx-auto max-w-2xl px-4 py-24 text-center">
       <h1 className="text-3xl font-semibold text-heading">Page not found</h1>

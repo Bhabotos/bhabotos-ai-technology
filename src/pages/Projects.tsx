@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import CatalogProjectCard from '../components/CatalogProjectCard'
 import { CATEGORIES, STATUSES, projects, type CategoryId, type ProjectStatus } from '../data/catalog'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { filterProjects } from '../lib/search'
 
 // Default ordering: featured first (in their set order), then by category, then title.
 const categoryOrder = new Map<string, number>(CATEGORIES.map((c, i) => [c.id, i]))
@@ -57,16 +58,7 @@ export default function Projects() {
   }
   const clear = () => setParams(new URLSearchParams())
 
-  const filtered = useMemo(() => {
-    const needle = q.trim().toLowerCase()
-    return sorted.filter((p) => {
-      if (category && p.category !== category) return false
-      if (status && p.status !== status) return false
-      if (tech && !p.tags.includes(tech)) return false
-      if (!needle) return true
-      return [p.title, p.summary, ...p.tags, ...p.stack].join(' ').toLowerCase().includes(needle)
-    })
-  }, [category, status, tech, q])
+  const filtered = useMemo(() => filterProjects(sorted, { category, status, tech, q }), [category, status, tech, q])
 
   const hasFilters = Boolean(category || status || tech || q)
 

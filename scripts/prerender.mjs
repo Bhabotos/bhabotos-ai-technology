@@ -11,14 +11,19 @@ const template = await readFile(join(dist, 'index.html'), 'utf8')
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
-function page({ path, title, description, body }) {
+function page({ path, title, description, body, noindex = false }) {
   const url = SITE + path
   let html = template
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/, `$1${esc(description)}$2`)
     .replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/, `$1${esc(title)}$2`)
     .replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/, `$1${esc(description)}$2`)
-  const extra = `    <link rel="canonical" href="${url}" />\n    <meta property="og:url" content="${url}" />\n    <meta property="og:site_name" content="BHABOTOS AI &amp; TECHNOLOGY" />\n    <meta name="twitter:title" content="${esc(title)}" />\n    <meta name="twitter:description" content="${esc(description)}" />\n`
+  const extra = noindex
+    ? `    <meta name="robots" content="noindex" />
+    <meta name="twitter:title" content="${esc(title)}" />
+    <meta name="twitter:description" content="${esc(description)}" />
+`
+    : `    <link rel="canonical" href="${url}" />\n    <meta property="og:url" content="${url}" />\n    <meta property="og:site_name" content="BHABOTOS AI &amp; TECHNOLOGY" />\n    <meta name="twitter:title" content="${esc(title)}" />\n    <meta name="twitter:description" content="${esc(description)}" />\n`
   html = html.replace('</head>', extra + '  </head>')
   // Crawler-visible fallback content; React replaces it on load.
   html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`)
@@ -40,6 +45,19 @@ const routes = [
   })),
 ]
 
+// Not-found page. Whether it is ever served depends on server config (for example an nginx
+// error_page rule); the existing SPA fallback keeps answering unknown URLs with the app shell.
+await writeFile(
+  join(dist, '404.html'),
+  page({
+    path: '/404',
+    title: 'Page not found | BHABOTOS AI & TECHNOLOGY',
+    description: 'The page you requested does not exist.',
+    noindex: true,
+    body: '<main><h1>Page not found</h1><p>That page does not exist or has moved.</p><p><a href="/projects">Browse all projects</a></p></main>',
+  }),
+)
+
 for (const r of routes) {
   const dir = join(dist, r.path)
   await mkdir(dir, { recursive: true })
@@ -52,4 +70,4 @@ await writeFile(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE}${u}</loc></url>`).join('\n')}\n</urlset>\n`,
 )
 await writeFile(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`)
-console.log(`prerendered ${routes.length} routes, sitemap with ${urls.length} URLs`)
+console.log(`prerendered ${routes.length} routes + 404.html, sitemap with ${urls.length} URLs`)

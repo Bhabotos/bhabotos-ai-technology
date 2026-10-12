@@ -29,6 +29,7 @@ export default function ProjectDetail() {
     project ? `${project.title} | Projects | BHABOTOS` : 'Project not found | BHABOTOS',
     project ? project.summary : 'The requested project could not be found.',
     project ? `/projects/${project.slug}` : undefined,
+    { noindex: !project },
   )
 
   if (!project) return <NotFound />
