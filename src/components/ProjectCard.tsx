@@ -1,4 +1,5 @@
 import { ArrowUpRight, Terminal } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 
 interface ProjectCardProps {
@@ -29,13 +30,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent mt-5 self-start"
-        >
-          View Project
-          <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-        </button>
+        {project.projectSlug ? (
+          <Link
+            to={`/projects/${project.projectSlug}`}
+            className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent mt-5 self-start rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          >
+            See a related project
+            <span className="sr-only"> for {project.name}</span>
+            <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+          </Link>
+        ) : (
+          <p className="text-xs text-text-muted mt-5">Concept: no public project yet</p>
+        )}
       </div>
     </div>
   )

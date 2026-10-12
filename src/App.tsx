@@ -6,7 +6,9 @@ import Home from './pages/Home'
 import Training from './pages/Training'
 import Solutions from './pages/Solutions'
 import Projects from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
 import CourseOutline from './pages/CourseOutline'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
           <Route path="/training" element={<Training />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/courses/:courseId" element={<CourseOutline />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
+  <title id="t">BHABOTOS AI &amp; TECHNOLOGY: Network, Automation, DevOps and AI projects</title>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-opacity="0.035"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#05070c"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="80" y="96" width="96" height="6" rx="3" fill="url(#g)"/>
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <text x="80" y="170" font-size="30" font-weight="600" fill="#f5f7fa" letter-spacing="1">BHABOTOS <tspan fill="#8b95a7" font-weight="500">AI &amp; TECHNOLOGY</tspan></text>
+    <text x="80" y="300" font-size="68" font-weight="700" fill="#f5f7fa">Network <tspan fill="#38bdf8">→</tspan> Automation</text>
+    <text x="80" y="384" font-size="68" font-weight="700" fill="#f5f7fa">DevOps <tspan fill="#38bdf8">→</tspan> AI Agents</text>
+    <text x="80" y="470" font-size="30" fill="#cbd2de">Real GitHub projects, each with an honest status label.</text>
+    <text x="80" y="560" font-size="26" font-weight="600" fill="#38bdf8">bhabotos.com</text>
+  </g>
+</svg>

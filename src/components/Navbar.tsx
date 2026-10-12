@@ -39,7 +39,7 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className={`mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 h-16 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8 transition-all duration-300 h-16 ${
           scrolled ? 'lg:h-16' : 'lg:h-20'
         }`}
       >
