@@ -5,6 +5,7 @@ import WhatWeDo from '../sections/WhatWeDo'
 import FeaturedTraining from '../sections/FeaturedTraining'
 import Solutions from '../sections/Solutions'
 import WhyUs from '../sections/WhyUs'
+import CareerPath from '../sections/CareerPath'
 import FeaturedProjects from '../sections/FeaturedProjects'
 import AboutPreview from '../sections/AboutPreview'
 import FinalCTA from '../sections/FinalCTA'
@@ -23,6 +24,7 @@ export default function Home() {
       <FeaturedTraining />
       <Solutions />
       <WhyUs />
+      <CareerPath />
       <FeaturedProjects />
       <AboutPreview />
       <FinalCTA />

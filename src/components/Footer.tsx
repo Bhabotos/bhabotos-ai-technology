@@ -11,7 +11,7 @@ const FOOTER_LINKS = [
 
 const SOCIAL_LINKS = [
   { label: 'LinkedIn', short: 'in', href: '#' },
-  { label: 'GitHub', short: 'gh', href: '#' },
+  { label: 'GitHub', short: 'gh', href: 'https://github.com/Bhabotos' },
   { label: 'Facebook', short: 'fb', href: '#' },
   { label: 'WhatsApp', short: 'wa', href: '#' },
 ]
